@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/no-plan-pantry/index.html",
+      "/posts/hw6-real-vs-fake-news/index.html",
+      "/posts/hw5-image-classification/index.html",
+      "/posts/hw4-heat-diffusion/index.html",
+      "/posts/hw3_webdev/index.html",
+      "/posts/hw2_web-scraping/index.html",
+      "/posts/hw1_data-wrangling-and-visualization/index.html",
+      "/posts/hw0_constructing-visualization-of-penguin-data/index.html"
+    ]
+  }
+]

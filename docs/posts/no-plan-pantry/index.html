@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jade Liang, Junying Li, Karis Choi">
+<meta name="dcterms.date" content="2024-12-13">
+
+<title>No-plan Pantry – PIC16B Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-530bf8e59df25186f8bffdc63bad3503.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PIC16B Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About This Blog</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jade-y-liang"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jade-yuqiong-liang/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">No-plan Pantry</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">scrapy</div>
+                <div class="quarto-category">sqlite3</div>
+                <div class="quarto-category">SQL</div>
+                <div class="quarto-category">BERT</div>
+                <div class="quarto-category">GPT-2</div>
+                <div class="quarto-category">dash</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jade Liang, Junying Li, Karis Choi </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 13, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="project-overview" class="level1">
+<h1>Project Overview</h1>
+<p>Our project, “No-Plan Pantry”, aims to minimize food waste and inspire creativity in the kitchen by developing a web-application which generates recipes based on user-inputted ingredients. Using web scraping, recipes are collected from allrecipes.com and cleaned to ensure data quality. Advanced machine learning models, such as GPT-2 and BERT, are further employed to generate AI-based recipes and predict cooking times using textual recipe instructions. The application integrates these features with a user-friendly interface developed using Dash.</p>
+<p>Data cleaning plays a critical role in standardizing recipe information, such as unifying time units, extracting key ingredients, and estimating missing cooking times. This step ensures the dataset is well-structured for machine learning models, enabling accurate recipe recommendations and cooking time predictions. The app’s interactivity allows users to select ingredients, set time or calorie preferences, and view both AI-generated and sourced recipes in an organized layout.</p>
+<p>Overall, the No-Plan Pantry project combines data science, natural language processing, and intuitive design to create an innovative tool that empowers users to cook creatively while reducing food waste.</p>
+<p>Here is the <a href="https://github.com/jade-y-liang/no-plan-pantry">link</a> to our GitHub repository.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="flowchart.png" title="Title" class="img-fluid figure-img"></p>
+<figcaption>Project Overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="web-scraping-allrecipes.com" class="level1">
+<h1>Web Scraping <code>allrecipes.com</code></h1>
+<p>To effectively scrape recipe data from <code>allrecipes.com</code>, we used <code>scrapy</code>, which is known to be efficient at web scraping. <code>scrapy</code>’s ensures fast performance even when dealing with large volumes of data, thus making it an ideal choice for our needs. For our project, we designed a custom scraper, called <code>RecipeSpider</code>, which is tailored to navigate through the site’s structure and extract key pieces of recipe-related information.</p>
+<p>Our <code>RecipeSpider</code> consists of three main methods to process different parts of the site: <code>parse</code>, <code>parse_menu_page</code>, and <code>parse_detail_page</code>. These methods are meticulously crafted to extract various attributes of each recipe, which includes the recipe’s name and category, its rating, preparation times, number of servings per recipe, list of ingredients, cooking directions, nutritional information, and the direct URL to the recipe. This comprehensive data collection is crucial for our web application.</p>
+<p>Here’s an in-depth look at the purpose of each method within <code>RecipeSpider</code>:</p>
+<ol type="1">
+<li><p><code>parse</code>: This method initiates the scraping process by fetching and parsing the main page URLs. It extracts the links to individual recipes and sends them to the <code>parse_detail_page</code> for further extraction.</p></li>
+<li><p><code>parse_menu_page</code>: Utilized for scraping pages that list multiple recipes, this method systematically collects links to all recipes on the menu page and queues them for detailed parsing.</p></li>
+<li><p><code>parse_detail_page</code>: The core of our scraping effort, this method delves into each recipe’s detail page, extracting all the specified attributes. It’s capable of handling dynamically loaded content, ensuring that no part of the recipe’s data is missed.</p></li>
+</ol>
+<p>Here is what each method looks like:</p>
+<div id="rguCl_P2uHZm" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(<span class="va">self</span>, response):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">        Parse the overview page and return each category link</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract all category links and their names</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        categories <span class="op">=</span> response.css(<span class="st">'div.mntl-alphabetical-list__group a'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> category <span class="kw">in</span> categories:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            link <span class="op">=</span> category.css(<span class="st">'::attr(href)'</span>).get()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Extract category name</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            category_name <span class="op">=</span> category.css(<span class="st">'::text'</span>).get()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Pass category_name to the next request using meta</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> scrapy.Request(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                url<span class="op">=</span>link,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                callback<span class="op">=</span><span class="va">self</span>.parse_menu_page,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Output category name for each recipe</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                meta<span class="op">=</span>{<span class="st">'category_name'</span>: category_name}</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4DY8JH04uKIg" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_menu_page(<span class="va">self</span>, response):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">        Parse each category page and follow each recipe link.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Access category name from response.meta</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        category_name <span class="op">=</span> response.meta[<span class="st">'category_name'</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract each recipe link on the category page</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        three_recommended_recipes <span class="op">=</span> response.css(<span class="st">"div[id='mntl-three-post__inner_1-0'] a::attr(href)"</span>).getall()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        all_recipes <span class="op">=</span> response.css(<span class="st">"div[id='mntl-taxonomysc-article-list-group_1-0'] a::attr(href)"</span>).getall()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        recipe_links <span class="op">=</span> three_recommended_recipes <span class="op">+</span> all_recipes</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Follow each recipe link to get recipe details</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> recipe_link <span class="kw">in</span> recipe_links:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> scrapy.Request(url<span class="op">=</span>recipe_link,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                 callback<span class="op">=</span><span class="va">self</span>.parse_detail_page,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                 meta<span class="op">=</span>{<span class="st">'category_name'</span>: category_name} <span class="co"># to later output category name for each recipe</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="CuDkNm_YuMSd" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_detail_page(<span class="va">self</span>, response):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Extract recipe name, prep time, cook time, total time, ingredients, directions, and</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">            nutrition facts (per serving) from each recipe page</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Access category name from response.meta</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        category_name <span class="op">=</span> response.meta[<span class="st">'category_name'</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        recipe_name <span class="op">=</span> response.css(<span class="st">"h1::text"</span>).get()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract recipe rating (will yield None if no ratings exist)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        recipe_rating <span class="op">=</span> response.css(<span class="st">"div[id='mm-recipes-review-bar__rating_1-0']::text"</span>).get()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract the time information individually and handle missing values</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (missing values will return None)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        prep_time <span class="op">=</span> response.xpath(<span class="st">"//div[div[text()='Prep Time:']]/div[@class='mm-recipes-details__value']/text()"</span>).get()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        cook_time <span class="op">=</span> response.xpath(<span class="st">"//div[div[text()='Cook Time:']]/div[@class='mm-recipes-details__value']/text()"</span>).get()</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        total_time <span class="op">=</span> response.xpath(<span class="st">"//div[div[text()='Total Time:']]/div[@class='mm-recipes-details__value']/text()"</span>).get()</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        servings <span class="op">=</span> response.xpath(<span class="st">"//div[div[text()='Servings:']]/div[@class='mm-recipes-details__value']/text()"</span>).get()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># this gives list of ingredients AND amount of ingredients (need manipulation)</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># raw_ingredients_list = response.css("ul.mm-recipes-structured-ingredients__list li.mm-recipes-structured-ingredients__list-item ::text").getall()</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        ingredients_list <span class="op">=</span> response.css(<span class="st">'span[data-ingredient-name="true"]::text'</span>).getall()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        direction_list <span class="op">=</span> response.css(<span class="st">'ol[class="comp mntl-sc-block mntl-sc-block-startgroup mntl-sc-block-group--OL"] p::text'</span>).getall()</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract nutrition facts with handling for missing values</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (missing values will return None)</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        values <span class="op">=</span> response.css(<span class="st">"tbody.mm-recipes-nutrition-facts-label__table-body.text-utility-300 td::text"</span>).getall()</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        nutrition_data <span class="op">=</span> {}</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Define the labels we are interested in and use XPath to find each one</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        nutrients <span class="op">=</span> {</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Total Fat'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Total Fat')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Saturated Fat'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Saturated Fat')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Cholesterol'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Cholesterol')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Sodium'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Sodium')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Total Carbohydrate'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Total Carbohydrate')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Dietary Fiber'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Dietary Fiber')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Total Sugars'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Total Sugars')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Protein'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Protein')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Vitamin C'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Vitamin C')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Calcium'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Calcium')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Iron'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Iron')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Potassium'</span>: response.xpath(<span class="st">"normalize-space(//tr[td/span[contains(text(), 'Potassium')]]/td[1]/span/following-sibling::text()[1])"</span>).get(),</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Clean the extracted values (remove extra whitespace) and add them to nutrition_data</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> nutrient, value <span class="kw">in</span> nutrients.items():</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>            nutrition_data[nutrient] <span class="op">=</span> value.strip() <span class="cf">if</span> value <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        calories <span class="op">=</span> response.css(<span class="st">"tr.mm-recipes-nutrition-facts-label__calories th.mm-recipes-nutrition-facts-label__table-head-subtitle span + span::text"</span>).get()</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>        total_fat <span class="op">=</span> nutrition_data.get(<span class="st">"Total Fat"</span>)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        saturated_fat <span class="op">=</span> nutrition_data.get(<span class="st">"Saturated Fat"</span>)</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        sodium_mg <span class="op">=</span> nutrition_data.get(<span class="st">"Sodium"</span>)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        grams_of_protein <span class="op">=</span> nutrition_data.get(<span class="st">"Protein"</span>)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        grams_of_carbs <span class="op">=</span> nutrition_data.get(<span class="st">"Total Carbohydrate"</span>)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        fiber <span class="op">=</span> nutrition_data.get(<span class="st">"Dietary Fiber"</span>)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>        sugar <span class="op">=</span> nutrition_data.get(<span class="st">"Total Sugars"</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>        cholesterol_mg <span class="op">=</span> nutrition_data.get(<span class="st">"Cholesterol"</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        vitamin_c_mg <span class="op">=</span> nutrition_data.get(<span class="st">"Vitamin C"</span>)</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        calcium_mg <span class="op">=</span> nutrition_data.get(<span class="st">"Calcium"</span>)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        iron_mg <span class="op">=</span> nutrition_data.get(<span class="st">"Iron"</span>)</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>        potassium_mg <span class="op">=</span> nutrition_data.get(<span class="st">"Potassium"</span>)</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> {<span class="st">'recipe_name'</span> : recipe_name,</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>               <span class="st">'category_name'</span> : category_name,</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>               <span class="st">'rating'</span> : recipe_rating,</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>               <span class="st">'prep_time'</span> : prep_time,</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>               <span class="st">'cook_time'</span> : cook_time,</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>               <span class="st">'total_time'</span> : total_time,</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>               <span class="st">'num_servings_per_recipe'</span> : servings,</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>               <span class="st">'ingredients_list'</span> : ingredients_list,</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>               <span class="st">'direction_list'</span>: direction_list,</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>               <span class="st">'calories_per_serving'</span> : calories,</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>               <span class="st">'total_fat (g)'</span> : total_fat,</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>               <span class="st">'saturated_fat (g)'</span> : saturated_fat,</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>               <span class="st">"sodium (mg)"</span> : sodium_mg,</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>               <span class="st">'protein (g)'</span> : grams_of_protein,</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>               <span class="st">'carbs (g)'</span> : grams_of_carbs,</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>               <span class="st">'fiber (g)'</span> : fiber,</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>               <span class="st">'sugar (g)'</span> : sugar,</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>               <span class="st">'cholesterol (mg)'</span> :cholesterol_mg,</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>               <span class="st">'vitamin_c (mg)'</span> :vitamin_c_mg,</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>               <span class="st">'calcium (mg)'</span> : calcium_mg,</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>               <span class="st">'iron (mg)'</span> : iron_mg,</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>               <span class="st">'potassium (mg)'</span> : potassium_mg,</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>               <span class="st">'recipe_link'</span> : response.url</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>        }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To speed up the process of scraping <code>allrecipes.com</code>, we maxed out the speed by setting <code>DOWNLOAD_DELAY</code> = 0 and <code>CONCURRENT_REQUESTS</code> = 32. To scrape more safely, we set <code>AUTOTHROTTLE_ENABLED</code> = True to allow our scraper to slow down in case if it detects server latency. Despite these changes to <code>settings.py</code>, it still ended up taking us roughly 2 hours to scrape the recipes. We ended up with ~15.2k recipes.</p>
+<p>Here’s a screenshot of what the scraped data looks like:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw_dataset.png" title="Title" class="img-fluid figure-img"></p>
+<figcaption>raw dataset</figcaption>
+</figure>
+</div>
+</section>
+<section id="data-cleaning-with-bert" class="level1">
+<h1>Data Cleaning with <code>BERT</code></h1>
+<p>After gathering all available recipes from AllRecipes.com, we proceed with data cleaning and feature engineering to create a clearer and more comprehensive dataset for subsequent web application development. Upon inspecting the data frame, several key objectives must be addressed: 1. Standardize input types and formats. 2. Remove incomplete recipes that lack ingredient and direction lists. 3. Extract the main ingredients for each recipe from the provided ingredient lists. 4. Standardize all time-related columns to minutes and compute any missing sub-time values based on the available data. 5. Predict the total time for recipes lacking time-related information.</p>
+<p>Upon closer inspection of the dataset, the ingredient list is a lengthy string containing complex information. To extract the main ingredients as a list, we need to apply natural language processing (NLP) techniques. To understand the structure of the ingredient composition, we summarize the word combination occurrences by creating a dataset that captures the frequency of each ingredient-related term. This approach allows us to identify the most common ingredients across the dataset and better understand the patterns in the ingredient lists.</p>
+<div id="aTQ71qHqGKFI" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Understand the structure of ingredients list</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop words to ignore</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> {<span class="st">'and'</span>, <span class="st">'or'</span>, <span class="st">'with'</span>, <span class="st">'in'</span>, <span class="st">'on'</span>, <span class="st">'to'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">'of'</span>, <span class="st">'for'</span>, <span class="st">'as'</span>, <span class="st">'the'</span>, <span class="st">'a'</span>, <span class="st">'an'</span>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to count all word occurrences</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_word_occurrences(ingredient_strings):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    all_words <span class="op">=</span> []</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ingredient_string <span class="kw">in</span> ingredient_strings:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(ingredient_string, <span class="bu">str</span>):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            ingredient_string <span class="op">=</span> re.sub(<span class="vs">r'[^\w\s]'</span>, <span class="st">''</span>, ingredient_string.lower())</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            words <span class="op">=</span> ingredient_string.split()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            filtered_words <span class="op">=</span> [word <span class="cf">for</span> word <span class="kw">in</span> words <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            all_words.extend(filtered_words)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count frequencies</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Counter(all_words)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Count word occurrences for all recipes</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>ingredients_counts <span class="op">=</span> count_word_occurrences(recipes[<span class="st">'ingredients_list'</span>])</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to a DataFrame</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>ingredients_counts <span class="op">=</span> (</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(ingredients_counts.items(), columns<span class="op">=</span>[<span class="st">'Word'</span>, <span class="st">'Count'</span>])</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    .sort_values(by<span class="op">=</span><span class="st">'Count'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    .reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Building on the findings above and incorporating the ingredient information provided on AllRecipes.com, we define a list of keywords to search for within each ingredient list. For certain plural forms, such as “berry” versus “berries,” we include the shared root of both terms to ensure that all relevant information is accurately captured. Then, we use an NLP function to apply the extraction process across the dataset, efficiently identifying and extracting the main ingredients from each recipe.</p>
+<div id="p9KN55tCHcP1" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> [<span class="st">'chicken'</span>, <span class="st">'onion'</span>, <span class="st">'tomatoes'</span>, <span class="st">'bread'</span>, <span class="st">'bean'</span>, <span class="st">'bell pepper'</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">'red pepper'</span>, <span class="st">'sweet pepper'</span>,<span class="st">'lemon'</span>, <span class="st">'beef'</span>, <span class="st">'pork'</span>, <span class="st">'mushroom'</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">'rice'</span>, <span class="st">'basil'</span>, <span class="st">'cilantro'</span>, <span class="st">'egg'</span>, <span class="st">'milk'</span>, <span class="st">'spinach'</span>, <span class="st">'shrimp'</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">'orange'</span>, <span class="st">'lime'</span>, <span class="st">'sausage'</span>, <span class="st">'bacon'</span>, <span class="st">'pineapple'</span>, <span class="st">'peanut'</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">'strawberr'</span>, <span class="st">'coconut'</span>, <span class="st">'pecan'</span>, <span class="st">'apple'</span>, <span class="st">'potato'</span>, <span class="st">'squash'</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">'jalapeno'</span>, <span class="st">'lettuce'</span>, <span class="st">'tortilla'</span>, <span class="st">'pea'</span>, <span class="st">'amaranth'</span>, <span class="st">'apricot'</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">'avocado'</span>, <span class="st">'banana'</span>, <span class="st">'barley'</span>, <span class="st">'brisket'</span>, <span class="st">'wheat'</span>, <span class="st">'duck'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">'fish'</span>, <span class="st">'flax seed'</span>, <span class="st">'goat'</span>, <span class="st">'turkey'</span>, <span class="st">'lamb'</span>, <span class="st">'mango'</span>, <span class="st">'oat'</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">'peach'</span>, <span class="st">'pear'</span>, <span class="st">'plum'</span>, <span class="st">'pomegranate'</span>, <span class="st">'salmon'</span>, <span class="st">'shrimp'</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">'lobster'</span>, <span class="st">'sardine'</span>, <span class="st">'catfish'</span>, <span class="st">'tuna'</span>, <span class="st">'eel '</span>, <span class="st">'anchovy'</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">'cucumber'</span>, <span class="st">'eggplant'</span>, <span class="st">'kale'</span>, <span class="st">'lemongrass'</span>, <span class="st">'leek'</span>, <span class="st">'radish'</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">'cauliflower'</span>, <span class="st">'cabbage'</span>, <span class="st">'asparagus'</span>, <span class="st">'broccoli'</span>, <span class="st">'endive'</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">'okra'</span>, <span class="st">'sweet potato'</span>, <span class="st">'brussels sprouts'</span>, <span class="st">'leek'</span>, <span class="st">'carrot'</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">'green beans'</span>, <span class="st">'beet'</span>, <span class="st">'bok choy'</span>, <span class="st">'spinach'</span>, <span class="st">'pumpkin'</span>, <span class="st">'cranberr'</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">'parsnip'</span>, <span class="st">'grape'</span>, <span class="st">'grapefruit'</span>, <span class="st">'turnip'</span>, <span class="st">'honeydew melon'</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">'rhubarb'</span>, <span class="st">'blackberr'</span>, <span class="st">'cantaloupe'</span>, <span class="st">'cherr'</span>, <span class="st">'kiwi'</span>, <span class="st">'plum'</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">'zucchini'</span>, <span class="st">'corn'</span>, <span class="st">'cheese'</span>, <span class="st">'chocolate'</span>, <span class="st">'flour'</span>]</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to extract keywords from ingredients_list</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_keywords(ingredient_list, keywords):</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">    Extracts specified keywords from a given ingredient list</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">        ingredient_list (str): A string representing the list of ingredients</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">        keywords (list): A list of keywords to search for within the ingredient list</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">        main_ingreidents: A sorted list of unique keywords found in the ingredient list</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if ingredient_list is a string; if not, treat it as empty</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(ingredient_list, <span class="bu">str</span>):</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize text and check for keywords</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    ingredient_list <span class="op">=</span> ingredient_list.lower()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    main_ingredients <span class="op">=</span> [keyword <span class="cf">for</span> keyword <span class="kw">in</span> keywords <span class="cf">if</span> keyword <span class="kw">in</span> ingredient_list]</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>(<span class="bu">set</span>(main_ingredients))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Another challenge in this phase is predicting the total cooking time for recipes that lack any time information in the original dataset. With 731 such recipes, comprising approximately 1/15 of the cleaned dataset, the limited data availability requires careful handling to maximize the utility for subsequent web application development. Predicting the total cooking time for these recipes is essential.</p>
+<p>Upon examining the composition of these recipes, they tend to feature vague and experience-based instructions with repetitive or inconsistent time references, making direct numerical extraction infeasible. To address this, we will implement a model capable of analyzing, interpreting the steps, and estimating an integer value representing the cooking time based on the instructions provided.</p>
+<p>After extensive research, the most suitable model for this case is BERT—Bidirectional Encoder Representations from Transformers. BERT is particularly effective for understanding the context of words in a sentence due to its bidirectional training approach, making it well-suited for interpreting the nuanced and vague instructions often found in recipe steps.</p>
+<p>The BERT model is imported, and the Functional API is used to add additional layers, enabling further customization and optimization for improved model performance in this specific task.</p>
+<div id="KIU9c6OVVUnM" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a custom model to wrap BERT</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">@register_keras_serializable</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BERTWrapper(tf.keras.Model):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, bert_model, <span class="op">**</span>kwargs):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(BERTWrapper, <span class="va">self</span>).<span class="fu">__init__</span>(<span class="op">**</span>kwargs)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bert_model <span class="op">=</span> bert_model</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pooling_layer <span class="op">=</span> GlobalAveragePooling1D()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dropout <span class="op">=</span> Dropout(<span class="fl">0.3</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dense1 <span class="op">=</span> Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="va">None</span>, kernel_regularizer<span class="op">=</span>regularizers.l2(<span class="fl">0.01</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.batch_norm1 <span class="op">=</span> BatchNormalization()</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.relu1 <span class="op">=</span> LeakyReLU(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dense2 <span class="op">=</span> Dense(<span class="dv">64</span>, activation<span class="op">=</span><span class="va">None</span>, kernel_regularizer<span class="op">=</span>regularizers.l2(<span class="fl">0.01</span>))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.batch_norm2 <span class="op">=</span> BatchNormalization()</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.relu2 <span class="op">=</span> LeakyReLU(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.output_layer <span class="op">=</span> Dense(<span class="dv">1</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> call(<span class="va">self</span>, inputs, <span class="op">**</span>kwargs):</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extracting the last hidden state from the BERT output</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>.bert_model(input_ids<span class="op">=</span>inputs[<span class="st">'input_ids'</span>], attention_mask<span class="op">=</span>inputs[<span class="st">'attention_mask'</span>])</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        last_hidden_state <span class="op">=</span> output.last_hidden_state</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        pooled_output <span class="op">=</span> <span class="va">self</span>.pooling_layer(last_hidden_state)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.dropout(pooled_output)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.dense1(x)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.batch_norm1(x)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.relu1(x)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.dense2(x)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.batch_norm2(x)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.relu2(x)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>.output_layer(x)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After fine-tuning the dataset and adjusting the hyperparameters, the training results demonstrate an overall improvement in both loss and mean absolute error (MAE) over the course of the training process. The initial loss and MAE values are high, which is expected given the complexity and variability of the dataset. As training progresses, there is a noticeable decline in both metrics, particularly during the first two epochs, indicating that the model effectively learns key patterns from the data. However, the improvement slows in later epochs, with both training and validation metrics stabilizing, and in some cases, showing slight fluctuations, which may suggest diminishing returns in model optimization.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="training.png" class="img-fluid figure-img"></p>
+<figcaption>Training Progress</figcaption>
+</figure>
+</div>
+<p>The model predicted the following unique outputs: <br> <code>array([66, 75, 76, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 111, 113, 114, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 136, 140, 146, 147])</code>.</p>
+<p>Upon randomly reviewing the corresponding original instructions, the predicted outputs appear reasonable and aligned with expectations. The diversity of predictions suggests the model is effectively capturing the nuances in the input data, providing a broad yet consistent range of outputs.</p>
+</section>
+<section id="ai-generated-recipes-with-gpt-2" class="level1">
+<h1>AI-Generated Recipes with <code>GPT-2</code></h1>
+<ul>
+<li>at least 2 paragraphs of description</li>
+<li>at least one code snippet</li>
+<li>at least one figure (e.g.&nbsp;screenshot of website, plotly, matplotlib, etc)</li>
+</ul>
+<p>To further enhance our culinary application, we decided to leverage the power of natural language processing by training a <code>GPT-2</code> model from <code>Hugging Face</code>. The goal was to create an intelligent system capable of generating complete recipes based on user-specified ingredients and time constraints.</p>
+<p>After cleaning our dataset of recipes, we proceeded with the task of fine-tuning GPT-2. This stage involved training the model to understand and produce recipe text that is not only coherent and contextually appropriate but also tailored to fit the culinary preferences and constraints input by the user.</p>
+<p>To start, we structured the recipe data to align with the requirements of the GPT-2 model by incorporating special tokens to signify the start and end of a recipe. This was crucial for the model to recognize individual recipe boundaries during generation. The data was formatted as follows in our <code>recipes</code> DataFrame:</p>
+<pre><code>recipes['formatted_text'] = recipes.apply(lambda row: f"[RECIPE_START] Ingredients: {row['main_ingredients']} Total Time: {row['total_time']} minutes Directions: {row['direction_list']} [RECIPE_END]", axis=1)</code></pre>
+<p>Then, using the GPT-2 tokenizer, we converted the formatted text into a sequence of tokens, which the model uses as input. This tokenization process is crucial as it translates the raw text into a numerical format that the model can understand:</p>
+<pre><code>tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+tokenizer.pad_token = tokenizer.eos_token
+tokenized_data = hf_dataset.map(tokenize_function, batched=True)</code></pre>
+<p>Lastly, we trained GPT-2 using the tokens from earlier:</p>
+<pre><code># fine-tune GPT-2 model
+from datasets import Dataset, DatasetDict
+from transformers import GPT2LMHeadModel, Trainer, TrainingArguments
+
+# split data set into train and test
+split_datasets = tokenized_data.train_test_split(test_size=0.1)
+dataset_dict = DatasetDict({
+    'train': split_datasets['train'],
+    'test': split_datasets['test']
+})
+
+def add_labels(examples):
+    examples['labels'] = examples['input_ids'].copy()
+    return examples
+
+# Apply the function to add labels
+dataset_dict = dataset_dict.map(add_labels)
+
+# Resize model embeddings to accommodate new tokens
+model.resize_token_embeddings(len(tokenizer))
+
+# Set up training arguments
+training_args = TrainingArguments(
+    output_dir='./results',
+    num_train_epochs=3,
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=4,
+    per_device_eval_batch_size=2,
+    save_steps=500,
+    save_total_limit=2,
+    warmup_steps=500,
+    weight_decay=0.01,
+    logging_dir='./logs',
+    logging_steps=10,
+    dataloader_num_workers=4
+)
+
+# Initialize Trainer
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=dataset_dict['train'],
+    eval_dataset=dataset_dict['test']
+)
+
+# Start training
+trainer.train()</code></pre>
+<p>To demonstrate the capabilities of our trained GPT-2 model, let’s consider a scenario where the user inputs ingredients such as “chicken,” “beef,” and “basil,” and sets a time constraint of 60 minutes. The trained GPT-2 model, having been finely tuned with a diverse recipe dataset, generates a coherent and structured recipe as follows on our web app:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sample_recipe.png" title="Title" class="img-fluid figure-img"></p>
+<figcaption>Sample AI-Generated Recipes</figcaption>
+</figure>
+</div>
+<p>Although the model still has room for improvement, this output demonstrates a noticeable advancement over the base GPT-2 model. The recipe not only adheres to the given ingredients and time constraints but also forms a more logical set of directions. This improvement underscores the value of our specialized training, which enables the model to produce recipes that are both imaginative and practical, enhancing the user’s cooking experience by offering personalized culinary solutions. This example illustrates how our AI-driven approach can streamline meal planning and introduce creativity into everyday cooking practices.</p>
+</section>
+<section id="web-development-with-dash" class="level1">
+<h1>Web Development with <code>Dash</code></h1>
+<p>Essentially, the “No-Plan Pantry” web application was built using Dash, focusing on a visually appealing and interactive layout. The purpose of this layout is to create a user-friendly interface which allows users to input ingredients, specify additional information, such as calorie range, and view recipe suggestions. The design elements ensure an intuitive user experience, using CSS-like dictionaries to maintain visual consistency across sections.</p>
+<p>There are several key components to this app layout:</p>
+<ol type="1">
+<li><p><strong>Title + Description</strong>: The title (“No-Plan Pantry”) and a descriptive paragraph are styled to captivate and inform users about the web application’s goals, which are to reduce food waste and inspire creativity in the kitchen.</p></li>
+<li><p><strong>Ingredient Selection</strong>: The application categorizes ingredients into sections (e.g., Vegetables, Proteins, Grains) with clickable buttons. Each button is styled to be user-friendly and visually engaging, using <code>button_style</code> to apply properties like padding, colors, and fonts.</p></li>
+<li><p><strong>Additional Inputs</strong>: Users can specify calorie ranges via input fields and cooking/prep time using a slider. These components ensure that recipe recommendations align with personal dietary needs and time constraints.</p></li>
+<li><p><strong>Results Section</strong>: A dedicated area displays two separate sections after processing the user’s input: One for the AI generated recipe suggestions and one for the recipes from allrecipes.com.</p></li>
+</ol>
+<p><strong>Example Code Snippet</strong>:</p>
+<p>Here is an excerpt which displays the ingredient selection section, where clickable buttons allow users to select items.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>html.Div([</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    html.H2(<span class="st">"Ingredients:"</span>, style<span class="op">=</span>header_style),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    html.Div([</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Vegetables column</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        html.Div([</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            html.H3(<span class="st">"Vegetables:"</span>, style<span class="op">=</span>ingredients_section),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>            html.Div([</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                html.Button(<span class="st">"Onion"</span>, <span class="bu">id</span><span class="op">=</span><span class="st">"onion-btn"</span>, style<span class="op">=</span>button_style),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                html.Button(<span class="st">"Tomatoes"</span>, <span class="bu">id</span><span class="op">=</span><span class="st">"tomatoes-btn"</span>, style<span class="op">=</span>button_style),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                html.Button(<span class="st">"Potatoes"</span>, <span class="bu">id</span><span class="op">=</span><span class="st">"potatoes-btn"</span>, style<span class="op">=</span>button_style),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>            ], style<span class="op">=</span>{<span class="st">'display'</span>: <span class="st">'flex'</span>, <span class="st">'flexDirection'</span>: <span class="st">'column'</span>, <span class="st">'padding'</span>: <span class="st">'10px'</span>}),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        ], style<span class="op">=</span>{<span class="st">'flex'</span>: <span class="st">'1'</span>}),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Additional columns for Proteins, Grains, etc.</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    ], style<span class="op">=</span>{<span class="st">'display'</span>: <span class="st">'flex'</span>, <span class="st">'justifyContent'</span>: <span class="st">'space-around'</span>}),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>], style<span class="op">=</span>{<span class="st">'backgroundColor'</span>: <span class="st">'#FAEDCA'</span>, <span class="st">'padding'</span>: <span class="st">'20px'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Visualization</strong>:</p>
+<p>Here is how the web-application turned out:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="web_layout_1.png" title="Title" class="img-fluid figure-img"></p>
+<figcaption>Web App Layout 1</figcaption>
+</figure>
+</div>
+<p>As we can see, there is a description and ingredients section. These were crafted using many html</p>
+<p><strong>Callback Function</strong>:</p>
+<p>For the web application, a single callback function is implemented to efficiently manage all the core functionalities of the No-Plan Pantry. When an ingredient button is clicked, the corresponding ingredient is added to a dynamically updated list displayed in the app. Upon pressing the “Submit” button, the selected ingredients, along with user-defined parameters such as time limit and calorie range, are used to query a recipe database. If matching recipes are found, up to three recipes are displayed, each with its name, main ingredients, and directions. In addition, an AI recipe is generated using the fine-tuned GPT-2 based model that incorporates the selected ingredients and constraints. After a successful query or AI generation, the dynamic memory of selected ingredients is cleared, and the display is reset. This callback combines the functionality of ingredient buttons and the submission button into a single function because Dash does not allow duplicate output variables, such as the section displaying selected ingredients.</p>
+<div id="vsKtznnV7Rkk" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.callback</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    [Output(<span class="st">'name_1'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'ingredients_1'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'directions_1'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'name_2'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'ingredients_2'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'directions_2'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'name_3'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'ingredients_3'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'directions_3'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'ingredients-dialog'</span>, <span class="st">'displayed'</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'ingredients-list'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'display-ingredients'</span>, <span class="st">'children'</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>     Output(<span class="st">'ai_directions'</span>, <span class="st">'children'</span>)],  <span class="co"># AI-generated recipe</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    [Input(<span class="st">'submit-btn'</span>, <span class="st">'n_clicks'</span>)] <span class="op">+</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    [Input(<span class="ss">f'</span><span class="sc">{</span>item<span class="sc">}</span><span class="ss">-btn'</span>, <span class="st">'n_clicks'</span>) <span class="cf">for</span> item <span class="kw">in</span> [</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"onion"</span>, <span class="st">"corn"</span>, <span class="st">"tomatoes"</span>, <span class="st">"potato"</span>, <span class="st">"bell pepper"</span>, <span class="st">"carrot"</span>, <span class="st">"pea"</span>, <span class="st">"mushroom"</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bean"</span>, <span class="st">"basil"</span>, <span class="st">"cilantro"</span>, <span class="st">"red pepper"</span>, <span class="st">"spinach"</span>, <span class="st">"jalapeno"</span>, <span class="st">"cabbage"</span>, <span class="st">"zucchini"</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"cucumber"</span>, <span class="st">"broccoli"</span>, <span class="st">"lettuce"</span>, <span class="st">"egg"</span>, <span class="st">"chicken"</span>, <span class="st">"beef"</span>, <span class="st">"pork"</span>, <span class="st">"bacon"</span>, <span class="st">"sausage"</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"shrimp"</span>, <span class="st">"turkey"</span>, <span class="st">"flour"</span>, <span class="st">"bread"</span>, <span class="st">"rice"</span>, <span class="st">"oat"</span>, <span class="st">"tortilla"</span>, <span class="st">"wheat"</span>, <span class="st">"apple"</span>, <span class="st">"lime"</span>,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"orange"</span>, <span class="st">"coconut"</span>, <span class="st">"strawberries"</span>, <span class="st">"cherries"</span>, <span class="st">"avocado"</span>, <span class="st">"cranberries"</span>, <span class="st">"banana"</span>, <span class="st">"milk"</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"cheese"</span>, <span class="st">"yogurt"</span>, <span class="st">"cream"</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    ]],</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    [State(<span class="st">'time-limit-slider'</span>, <span class="st">'value'</span>),</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>     State(<span class="st">'min-calories-input'</span>, <span class="st">'value'</span>),</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>     State(<span class="st">'max-calories-input'</span>, <span class="st">'value'</span>),</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>     State(<span class="st">'display-ingredients'</span>, <span class="st">'children'</span>)],</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    prevent_initial_call<span class="op">=</span><span class="va">True</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_recipes_and_ingredients(<span class="op">*</span>args):</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    ctx <span class="op">=</span> dash.callback_context</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    triggered_id <span class="op">=</span> ctx.triggered[<span class="dv">0</span>][<span class="st">'prop_id'</span>].split(<span class="st">'.'</span>)[<span class="dv">0</span>] <span class="cf">if</span> ctx.triggered <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If an item button is clicked</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> triggered_id <span class="kw">and</span> triggered_id <span class="op">!=</span> <span class="st">'submit-btn'</span>:  <span class="co"># Item button clicked</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>        ingredient <span class="op">=</span> triggered_id.split(<span class="st">'-'</span>)[<span class="dv">0</span>]</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>        success <span class="op">=</span> insert_ingredient(ingredient)</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>        ingredients <span class="op">=</span> fetch_ingredients()</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>        list_items <span class="op">=</span> [html.Li(ingredient[<span class="dv">0</span>]) <span class="cf">for</span> ingredient <span class="kw">in</span> ingredients]</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>        display_ingredients <span class="op">=</span> [ingredient[<span class="dv">0</span>] <span class="cf">for</span> ingredient <span class="kw">in</span> ingredients]</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">9</span> <span class="op">+</span> [<span class="va">False</span>, list_items, display_ingredients, <span class="st">""</span>]</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If the submit button is clicked</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> triggered_id <span class="op">==</span> <span class="st">'submit-btn'</span> <span class="kw">and</span> args[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="dv">0</span>:  <span class="co"># args[0] is n_clicks for submit-btn</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>        time_limit <span class="op">=</span> args[<span class="op">-</span><span class="dv">4</span>] <span class="kw">or</span> <span class="dv">180</span>  <span class="co"># Default to 180 if not set</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>        min_calories <span class="op">=</span> args[<span class="op">-</span><span class="dv">3</span>] <span class="kw">or</span> <span class="dv">0</span>  <span class="co"># Default to 0 if not set</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>        max_calories <span class="op">=</span> args[<span class="op">-</span><span class="dv">2</span>] <span class="kw">or</span> <span class="dv">2000</span>  <span class="co"># Default to 2000 if not set</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>        display_ingredients <span class="op">=</span> args[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if no ingredients are selected</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(display_ingredients, <span class="bu">list</span>) <span class="kw">or</span> <span class="bu">len</span>(display_ingredients) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">9</span> <span class="op">+</span> [<span class="va">True</span>, [], [], <span class="st">""</span>]  <span class="co"># Show dialog and reset outputs</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Retrieve recipes using the query function</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>            df <span class="op">=</span> query_recipes(</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>                <span class="st">"recipes_db.sqlite"</span>,</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>                ingredients<span class="op">=</span>display_ingredients,</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>                time<span class="op">=</span>time_limit,</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>                min_calories<span class="op">=</span>min_calories,</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>                max_calories<span class="op">=</span>max_calories</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">9</span> <span class="op">+</span> [<span class="va">False</span>, [], [], <span class="st">""</span>]  <span class="co"># Clear lists and hide the dialog</span></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Generate a fallback AI recipe</span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>        <span class="im">from</span> transformers <span class="im">import</span> GPT2LMHeadModel, GPT2Tokenizer</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>        model_tuned <span class="op">=</span> GPT2LMHeadModel.from_pretrained(<span class="st">"./fine_tuned_recipe_model"</span>)</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>        tokenizer <span class="op">=</span> GPT2Tokenizer.from_pretrained(<span class="st">"./fine_tuned_recipe_model"</span>)</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>        prompt <span class="op">=</span> <span class="ss">f"Generate a recipe with the following ingredients: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(display_ingredients)<span class="sc">}</span><span class="ss">. Keep it under </span><span class="sc">{</span>time_limit<span class="sc">}</span><span class="ss"> minutes."</span></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>        inputs <span class="op">=</span> tokenizer(prompt, return_tensors<span class="op">=</span><span class="st">"pt"</span>, truncation<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>        output_tuned <span class="op">=</span> model_tuned.generate(</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a>            input_ids<span class="op">=</span>inputs[<span class="st">"input_ids"</span>],</span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>            attention_mask<span class="op">=</span>inputs[<span class="st">"attention_mask"</span>],</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>            max_length<span class="op">=</span><span class="dv">250</span>,</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>            num_beams<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>            no_repeat_ngram_size<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>            early_stopping<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>            eos_token_id<span class="op">=</span>tokenizer.eos_token_id)</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>        generated_recipe <span class="op">=</span> tokenizer.decode(output_tuned[<span class="dv">0</span>], skip_special_tokens<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove the prompt from the generated recipe</span></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> generated_recipe.startswith(prompt):</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>            generated_recipe <span class="op">=</span> generated_recipe[<span class="bu">len</span>(prompt):].strip()</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If recipes are found</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> df.empty:</span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>            recipe_1 <span class="op">=</span> df.iloc[<span class="dv">0</span>] <span class="cf">if</span> <span class="bu">len</span>(df) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>            recipe_2 <span class="op">=</span> df.iloc[<span class="dv">1</span>] <span class="cf">if</span> <span class="bu">len</span>(df) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>            recipe_3 <span class="op">=</span> df.iloc[<span class="dv">2</span>] <span class="cf">if</span> <span class="bu">len</span>(df) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>            <span class="kw">def</span> format_recipe(recipe, index):</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> recipe <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> (</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>                        <span class="ss">f"Recipe </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">: No recipe found"</span>,</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Main Ingredients: No ingredients"</span>,</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Directions: No directions"</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>                name <span class="op">=</span> <span class="ss">f"Recipe </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>recipe<span class="sc">.</span>get(<span class="st">'recipe_name'</span>, <span class="st">'No recipe name'</span>)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>                ingredients <span class="op">=</span> recipe.get(<span class="st">'main_ingredients'</span>, [])</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">isinstance</span>(ingredients, <span class="bu">list</span>):</span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>                    ingredients <span class="op">=</span> <span class="ss">f"Main Ingredients: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(ingredients)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>                directions <span class="op">=</span> <span class="ss">f"Directions: </span><span class="sc">{</span>recipe<span class="sc">.</span>get(<span class="st">'direction_list'</span>, <span class="st">'No directions'</span>)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> name, ingredients, directions</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>            name_1, ingredients_1, directions_1 <span class="op">=</span> format_recipe(recipe_1, <span class="dv">1</span>)</span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>            name_2, ingredients_2, directions_2 <span class="op">=</span> format_recipe(recipe_2, <span class="dv">2</span>)</span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>            name_3, ingredients_3, directions_3 <span class="op">=</span> format_recipe(recipe_3, <span class="dv">3</span>)</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Clear ingredients after successful query</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>            clear_ingredients()</span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> (</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>                name_1, ingredients_1, directions_1,</span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>                name_2, ingredients_2, directions_2,</span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>                name_3, ingredients_3, directions_3,</span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>                <span class="va">False</span>, [], [], generated_recipe</span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If no recipes are found, return only the AI-generated recipe</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Generated Recipe: AI"</span>, <span class="st">"Main Ingredients: AI-generated"</span>, generated_recipe,</span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>            <span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>,</span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>            <span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>,</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>            <span class="va">False</span>, [], [], generated_recipe</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Default return</span></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">9</span> <span class="op">+</span> [<span class="va">False</span>, [], [], <span class="st">""</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="results.png" title="Title" class="img-fluid figure-img"></p>
+<figcaption>Web Application Results</figcaption>
+</figure>
+</div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<section id="remarks" class="level2">
+<h2 class="anchored" data-anchor-id="remarks">Remarks</h2>
+<p>The overall project is logically structured by integrating an advanced machine learning model, industry-standard frameworks, data analytics insights, neural network applications, and aesthetic design principles. Throughout the process, we encountered numerous challenges and discovered additional innovative ideas, many of which were successfully incorporated into the system. The AI-generated model, in particular, exceeded our initial expectations, providing enhanced functionality and value.</p>
+<p>However, there remains significant room for expansion and improvement. For instance, our web scraping efforts could be scaled to acquire a much larger and more diverse dataset, further enriching the system’s capabilities. Additionally, the configuration of the AI-generated model can be optimized for greater speed and efficiency, ensuring a smoother and faster user experience. These enhancements will not only strengthen the project’s current foundation but also open the door for further innovation and scalability in the future.</p>
+</section>
+<section id="ethical-ramifications" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-ramifications">Ethical Ramifications</h2>
+<p>This project does raise important ethical considerations. For instance, web scraping recipes from allrecipes.com without explicit consent may violate terms of service. Proper care must be taken to respect copyright and intellectual property. Further, user privacy raises concern, since inputted data such as ingredients must be protected under laws like GDPR. AI-generated recipes may also produce unsafe or inaccurate instructions, requiring transparency in regards to their limitations. Bias in the dataset could favor certain cuisines, which reduces inclusivity. Finally, although this project aims to reduce food waste, it may lead to users purchasing more ingredients, potentially causing waste accumulation. To conclude, addressing these ethical issues is essential to ensuring the project’s benefits outweigh its risks.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
