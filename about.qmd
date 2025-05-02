@@ -1,5 +1,5 @@
 ---
-title: "About This Blog"
+title: "Jade Liang"
 image: /images/profile.jpg
 about:
   template: trestles

@@ -10,7 +10,8 @@ website:
     right:
       - href: https://jadeyliang.com
         text: My Website
-      - about.qmd
+      - href: about.qmd
+        text: About This Blog
       - icon: github
         href: https://github.com/jade-y-liang
       - icon: linkedin
