@@ -1,5 +1,17 @@
-# PIC 16B Blog
+# Beyond the Dataset
 
-Welcome! This blog is part of my coursework for the Program in Computing (PIC) 16B at UCLA. It features a series of tutorials and analyses that explore data science concepts and projects in an engaging and practical way. Topics include data wrangling and visualization, web scraping, web development, image classification, and fake news detection.
+## ℹ️ About
 
-You can access this blog using this [link](https://jade-y-liang.github.io/pic16b-blog/). 
+Welcome to **Beyond the Dataset** - a data science and analytics blog created by me, Jade! 
+
+What began as a platform to publish my coursework from UCLA's Program in Computing (PIC) 16B course has grown into a collection of hands-on projects that explores a wide range of topics. 
+
+## 🎯 Goal
+
+This blog serves as a portfolio and a personal learning journal. It's where I showcase projects, tutorials, and analyses while continuing to grow my skills as an aspiring data analyst and data scientist. 
+
+## 🔗 Access the Blog
+
+Check it out [here](https://jade-y-liang.github.io/beyond-the-dataset/)!
+
+
