@@ -1,0 +1,35 @@
+---
+title: "About This Blog"
+image: /images/profile.jpg
+about:
+  template: trestles
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jade-yuqiong-liang/
+    - icon: github
+      text: Github
+      href: https://github.com/jade-y-liang
+    - icon: person-fill
+      text: Website
+      href: https://jadeyliang.com
+    - icon: inbox-fill
+      text: Email
+      url: "mailto:jade.y.liang@gmail.com"
+    - icon: file-person
+      text: Resume
+      url: "Resume.pdf"
+
+---
+
+# Beyond the Dataset
+
+### ℹ️ About
+
+Welcome to **Beyond the Dataset** - a data science and analytics blog created by me, Jade! 
+
+What began as a platform to publish my coursework from UCLA's Program in Computing (PIC) 16B course has grown into a collection of hands-on projects that explores a wide range of topics. 
+
+### 🎯 Goal
+
+This blog serves as a portfolio and a personal learning journal. It's where I showcase projects, tutorials, and analyses while continuing to grow my skills as an aspiring data analyst and data scientist. 

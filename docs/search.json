@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About This Blog",
     "section": "",
-    "text": "This is a blog that I made while taking PIC 16B. This blog consists of homework assignments involving data analysis, as well as a final project!"
+    "text": "Beyond the Dataset\n\nℹ️ About\nWelcome to Beyond the Dataset - a data science and analytics blog created by me, Jade!\nWhat began as a platform to publish my coursework from UCLA’s Program in Computing (PIC) 16B course has grown into a collection of hands-on projects that explores a wide range of topics.\n\n\n🎯 Goal\nThis blog serves as a portfolio and a personal learning journal. It’s where I showcase projects, tutorials, and analyses while continuing to grow my skills as an aspiring data analyst and data scientist."
   },
   {
     "objectID": "posts/hw0_constructing-visualization-of-penguin-data/index.html",
@@ -247,8 +247,22 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "PIC16B Blog",
+    "title": "Beyond the Dataset",
     "section": "",
     "text": "No-plan Pantry\n\n\n\n\n\n\nscrapy\n\n\nsqlite3\n\n\nSQL\n\n\nBERT\n\n\nGPT-2\n\n\ndash\n\n\n\n\n\n\n\n\n\nDec 13, 2024\n\n\nJade Liang, Junying Li, Karis Choi\n\n\n\n\n\n\n\n\n\n\n\n\nDetecting Fake vs. Real News\n\n\n\n\n\n\nkeras\n\n\ntensorflow\n\n\npandas\n\n\nnumpy\n\n\n\n\n\n\n\n\n\nDec 2, 2024\n\n\nJade Liang\n\n\n\n\n\n\n\n\n\n\n\n\nImage Classification with Keras\n\n\n\n\n\n\nkeras\n\n\ntensorflow\n\n\nmatplotlib\n\n\nnumpy\n\n\n\n\n\n\n\n\n\nNov 22, 2024\n\n\nJade Liang\n\n\n\n\n\n\n\n\n\n\n\n\nHeat Diffusion\n\n\n\n\n\n\nnumpy\n\n\nmatplotlib\n\n\njax\n\n\n\n\n\n\n\n\n\nNov 13, 2024\n\n\nJade Liang\n\n\n\n\n\n\n\n\n\n\n\n\nWeb Development with Dash\n\n\n\n\n\n\nsqlite3\n\n\ndash\n\n\n\n\n\n\n\n\n\nNov 8, 2024\n\n\nJade Liang\n\n\n\n\n\n\n\n\n\n\n\n\nWeb Scraping with Scrapy\n\n\n\n\n\n\nscrapy\n\n\npandas\n\n\nmatplotlib\n\n\n\n\n\n\n\n\n\nOct 30, 2024\n\n\nJade Liang\n\n\n\n\n\n\n\n\n\n\n\n\nCreating Databases, Query Functions, and Interactive Plots\n\n\n\n\n\n\nsqlite3\n\n\nSQL\n\n\npandas\n\n\nsklearn\n\n\nplotly\n\n\n\n\n\n\n\n\n\nOct 23, 2024\n\n\nJade Liang\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Construct a Visuaization of the Palmer Penguins Data Set\n\n\n\n\n\n\npandas\n\n\nseaborn\n\n\n\n\n\n\n\n\n\nOct 14, 2024\n\n\nJade Liang\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html#ℹ-about",
+    "href": "about.html#ℹ-about",
+    "title": "About This Blog",
+    "section": "",
+    "text": "Welcome to Beyond the Dataset - a data science and analytics blog created by me, Jade!\nWhat began as a platform to publish my coursework from UCLA’s Program in Computing (PIC) 16B course has grown into a collection of hands-on projects that explores a wide range of topics."
+  },
+  {
+    "objectID": "about.html#goal",
+    "href": "about.html#goal",
+    "title": "About This Blog",
+    "section": "",
+    "text": "This blog serves as a portfolio and a personal learning journal. It’s where I showcase projects, tutorials, and analyses while continuing to grow my skills as an aspiring data analyst and data scientist."
   }
 ]

@@ -1,0 +1,11 @@
+/.quarto/
+_site/
+*.pdf
+*.zip
+.Rhistory
+.Rapp.history
+.ipynb_checkpoints/
+.virtual_documents/
+__pycache__/
+*.sqlite
+.DS_Store

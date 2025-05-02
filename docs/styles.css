@@ -1,1 +1,49 @@
 /* css styles */
+
+body {
+  background-color: #FAF9F6;  /* Light gray like Bootstrap's bg-light */
+  color: #7A6D46;
+}
+body,
+p,
+h1, h2, h3, h4, h5, h6,
+a,
+li,
+span,
+div,
+.card,
+.quarto-post .metadata,
+.quarto-post .description,
+.sidebar nav,
+.sidebar,
+.sidebar .categories {
+  color: #7A6D46 !important;
+}
+.navbar {
+  background-color: #FAF9F6 !important;
+  color: #788753 !important;
+}
+.navbar a,
+.navbar-brand {
+  color: #788753 !important; /* To change navbar outline color*/
+}
+.quarto-title-banner {
+  background-color: #BAB091 !important;
+  color: #000 !important; /* Adjust if needed */
+}
+a:hover,
+.navbar a:hover,
+.navbar-brand:hover {
+  color: #A96E4A !important;
+  text-decoration: underline;
+}
+
+.button, .btn, .quarto-title-banner .btn {
+  background-color: #A96E4A;
+  color: white !important;
+  border: none;
+}
+
+.button:hover, .btn:hover {
+  background-color: #8f5635;
+}

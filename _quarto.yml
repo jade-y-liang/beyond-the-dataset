@@ -1,21 +1,28 @@
 project:
   type: website
+  resources: 
+    - Resume.pdf
   output-dir: docs
 
 website:
-  title: ""
+  title: "Home"
   navbar:
     right:
+      - href: https://jadeyliang.com
+        text: My Website
       - about.qmd
       - icon: github
         href: https://github.com/jade-y-liang
       - icon: linkedin
         href: https://www.linkedin.com/in/jade-yuqiong-liang/
+  favicon: /images/circle-small.png
 
 format:
   html:
-    theme: minty
+    respect-user-color-scheme: true
+    theme: sketchy
     css: styles.css
+    smooth-scroll: true
 
 
 
