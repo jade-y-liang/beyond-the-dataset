@@ -9,3 +9,4 @@ _site/
 __pycache__/
 *.sqlite
 .DS_Store
+.Rproj.user
