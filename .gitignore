@@ -1,11 +1,12 @@
-/.quarto/
-_site/
 *.zip
-.Rhistory
 .Rapp.history
 .ipynb_checkpoints/
 .virtual_documents/
 __pycache__/
 *.sqlite
-.DS_Store
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+/.quarto/

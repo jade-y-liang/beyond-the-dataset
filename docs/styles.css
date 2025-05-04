@@ -1,7 +1,8 @@
 /* css styles */
 
+/*
 body {
-  background-color: #FAF9F6;  /* Light gray like Bootstrap's bg-light */
+  background-color: #FAF9F6;
   color: #7A6D46;
 }
 body,
@@ -25,11 +26,11 @@ div,
 }
 .navbar a,
 .navbar-brand {
-  color: #788753 !important; /* To change navbar outline color*/
+  color: #788753 !important;
 }
 .quarto-title-banner {
   background-color: #BAB091 !important;
-  color: #000 !important; /* Adjust if needed */
+  color: #000 !important; 
 }
 a:hover,
 .navbar a:hover,
@@ -47,3 +48,4 @@ a:hover,
 .button:hover, .btn:hover {
   background-color: #8f5635;
 }
+*/
